@@ -9,4 +9,4 @@ Sane local WordPress environment. Not for production use.
 
 ## Installation
 
-`./host.sh`
+`./host.sh` then follow instructions
