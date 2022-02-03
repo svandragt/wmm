@@ -1,1 +1,3 @@
-vmm (vvv minus minus) -> simpler version of vvv
+# vmm
+
+Sane local WordPress environment. Not for production use.
