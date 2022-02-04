@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-multipass launch -n vmm
-multipass mount . vmm:/multipass
+multipass launch -n wmm
+multipass mount . wmm:/multipass
 
 echo  "Run: . /multipass/guest.sh"
-multipass shell vmm
+multipass shell wmm
