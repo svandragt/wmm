@@ -1,6 +1,6 @@
 # wmm
 
-Sane local WordPress environment. Not for production use.
+A simple local environment in a few minutes. Setup for WordPress, flexible for other projects.
 
 
 ## Requirements
