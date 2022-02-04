@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 if [ ! -f "/var/www/html/wp-config.php" ]
 then
+	echo "Installing WordPress ..."
+
 	if ! command -v wp &> /dev/null
 	then
 		echo "ERROR: requires wp-cli!"

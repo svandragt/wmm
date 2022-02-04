@@ -1,1 +1,2 @@
-multipass delete vmm; multipass purge
+#!/usr/bin/env bash
+multipass delete wmm; multipass purge
