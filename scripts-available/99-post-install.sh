@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 pushd "/var/www/html" || return
 	wp rewrite structure '/%postname%'
+	wp plugin
 popd || return
 
 # TODO move to post
