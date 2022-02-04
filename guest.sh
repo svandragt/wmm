@@ -12,13 +12,4 @@ pushd "$SCRIPT_DIR" || exit 1
         echo ''
         . "$s"
     done
-
-    # TODO move to post
-    sudo systemctl restart caddy
-
-    sudo apt-get -y install net-tools
-    IPADDR=$(hostname -I | cut -d' ' -f1)
-    echo ''
-    echo "Done! Add the following line to your /etc/hosts"
-    echo "${IPADDR} wp.test "
 popd || exit 1
