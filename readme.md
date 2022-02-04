@@ -1,6 +1,6 @@
 # wmm
 
-A simple local environment in a few minutes. Setup for WordPress, flexible for other projects.
+Setup a simple local environment in a few minutes. Accommodating a WordPress setup, but is flexible for other projects.
 
 
 ## Requirements
