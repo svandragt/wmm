@@ -9,4 +9,5 @@ Sane local WordPress environment. Not for production use.
 
 ## Installation
 
-`./host.sh` then follow instructions
+1. Copy scripts from `scripts-available` to `scripts-enabled`.
+2. Run `./host.sh` then follow instructions.
