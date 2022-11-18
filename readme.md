@@ -10,10 +10,11 @@ Features:
 ## Requirements
 
 - https://multipass.run/
+- A working knowledge of bash scripting, because all the configuration and extensions will use them.
 
 ## Installation
 
-1. Run `./reset.sh` then follow instructions to add the guest host to your `/etc/hosts` file.
+1. Run `./reset.sh` then follow instructions to add the guest host to your `/etc/hosts` file. It deletes the current guest and then reprovisions it.
 2. load up https://wp.test
 
 
