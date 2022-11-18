@@ -1,3 +1,4 @@
+export NEEDRESTART_MODE='a'
 
 if ! command -v avahi-daemon &> /dev/null
 then

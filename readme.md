@@ -15,3 +15,8 @@ Features:
 
 1. Copy scripts from `scripts-available` to `scripts-enabled`.
 2. Run `./host.sh` then follow instructions.
+
+
+## What's with the name wmm?
+
+I forgot.
