@@ -1,4 +1,5 @@
-export NEEDRESTART_MODE='a'
+#!/usr/bin/env bash
+echo '$nrconf{restart} = a;' | sudo te -a /etc/needrestart/needrestart.conf
 
 if ! command -v avahi-daemon &> /dev/null
 then

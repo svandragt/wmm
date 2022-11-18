@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 export PHP_VERSION="8.0"
 if ! command -v php &> /dev/null
 then
