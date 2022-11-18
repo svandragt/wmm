@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Starts the VM
+echo "Start the VM..."
 multipass launch -n wmm
 # Mount the current folder as /multipass
 multipass mount . wmm:/multipass
