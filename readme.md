@@ -13,8 +13,8 @@ Features:
 
 ## Installation
 
-1. Copy scripts from `scripts-available` to `scripts-enabled`.
-2. Run `./host.sh` then follow instructions.
+1. Run `./reset.sh` then follow instructions to add the guest host to your `/etc/hosts` file.
+2. load up https://wp.test
 
 
 ## What's with the name wmm?
