@@ -1,16 +1,18 @@
 # wmm
 
-Setup a simple local environment in a few minutes. Accommodating a WordPress setup, but is flexible for other projects.
+Setup a simple local environment in a few minutes, using Multipass and shell scripting.
 
 Features:
 * Provision a server using a list of scripts, ran in alphabetical order.
-* Example: sets up WordPress from scratch, with permalinks and object-cache.
+* Example: sets up WordPress from scratch, with permalinks and object-cache. Accommodating a WordPress setup, but is flexible for other projects, just replace the scripts with your own.
 
 
 ## Requirements
 
 - https://multipass.run/
-- A working knowledge of bash scripting, because all the configuration and extensions will use them.
+- A working knowledge of bash scripting.
+
+You do not need to know Docker or Ansible, Terraform or Chef, because this project keeps it simple.
 
 ## Installation
 
