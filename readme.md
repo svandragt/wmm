@@ -20,4 +20,4 @@ Features:
 
 ## What's with the name wmm?
 
-I forgot.
+[VVV](https://varyingvagrantvagrants.org/) minus minus. I guess if you squint with your eyes multiple Vs look like a W?
