@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+
+# Starts the VM
 multipass launch -n wmm
+# Mount the current folder as /multipass
 multipass mount . wmm:/multipass
 
-echo ''
-echo  "Run: . /multipass/guest.sh"
-multipass shell wmm
+# Install the required packages
+multipass exec wmm -- ./guest.sh
