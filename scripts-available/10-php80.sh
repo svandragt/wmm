@@ -1,6 +1,6 @@
+export PHP_VERSION="8.0"
 if ! command -v php &> /dev/null
 then
-	export PHP_VERSION="8.0"
 	echo 'Installing PHP $PHP_VERSION ...'
 	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo add-apt-repository ppa:ondrej/php -y

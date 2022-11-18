@@ -10,8 +10,11 @@ then
 	sudo systemctl enable --now caddy
 fi
 
-echo "Applying configuration..."
-sudo cp /multipass/etc/caddy/Caddyfile /etc/caddy/Caddyfile
+sudo cat /multipass/etc/caddy/Caddyfile.tmpl | sed "s/PHP_VERSION/$PHP_VERSION/g" | sudo tee /etc/caddy/Caddyfile
+sudo 
+then
+fi
+
 sudo systemctl restart caddy
 
 #TODO register post actions
