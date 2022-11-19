@@ -20,14 +20,10 @@ then
 		wp core download
 		wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
 		wp core install --url=wp.test --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
-		sed -i "/<?php/i define('WP_CACHE', true);" wp-config.php
+		sed -i "/<?php/a define('WP_CACHE', true);" wp-config.php
 		
 
-		# Install new default theme	
-		pushd wp-content/themes || return
-			git clone --depth 1 --single-branch https://github.com/jacklenox/susty
-		popd || return
-		wp theme activate susty
+		wp theme install --activate https://github.com/jacklenox/susty/archive/refs/heads/master.zip
 
 		wp plugin install query-monitor --activate
 		wp plugin install surge --activate
