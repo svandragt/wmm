@@ -1,9 +1,10 @@
-wp.test:80
+wp.test
 
 root * /var/www/html
 php_fastcgi unix//run/php/phpPHP_VERSION-fpm.sock
 file_server
 encode gzip
+tls self_signed
 
 @disallowed {
     path /xmlrpc.php
@@ -11,4 +12,3 @@ encode gzip
     path /wp-content/uploads/*.php
 }
 
-rewrite @disallowed '/index.php'
