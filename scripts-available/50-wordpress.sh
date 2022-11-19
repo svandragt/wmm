@@ -21,7 +21,7 @@ then
 	pushd /var/www/html || return
 		wp core download
 		wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
-		wp core install --url=wp.test --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
+		wp core install --url=wmm.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
 		sed -i "/<?php/a define('FS_METHOD','direct');" wp-config.php
 		sed -i "/<?php/a define('WP_CACHE', true);" wp-config.php
 
@@ -36,6 +36,7 @@ then
 
 		wp surge flush --delete
 
-		sudo chown www-data:www-data wp-content -R
+		sudo chown ubuntu:www-data wp-content -R
+		sudo chmod g+w wp-content -R
 	popd || return
 fi

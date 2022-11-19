@@ -17,7 +17,7 @@ You do not need to know Docker or Ansible, Terraform or Chef, because this proje
 ## Installation
 
 1. Run `./reset.sh` then follow instructions to add the guest host to your `/etc/hosts` file. It deletes the current guest and then reprovisions it.
-2. load up https://wp.test
+2. load up https://wmm.local
 
 
 ## What's with the name wmm?
