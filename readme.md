@@ -1,10 +1,16 @@
 # wmm
 
-Setup a simple local environment in a few minutes, using Multipass and shell scripting.
+Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. Provision a server using a list of scripts, ran in alphabetical order.
 
-Features:
-* Provision a server using a list of scripts, ran in alphabetical order.
-* Example: sets up WordPress from scratch, with permalinks and object-cache. Accommodating a WordPress setup, but is flexible for other projects, just replace the scripts with your own.
+WordPress Features:
+* PHP 8.0 and latest WordPress
+* Object cache using Redis
+* Full page caching using Surge
+* Self signed HTTPS using Caddy
+* Minimal default theme using Susty
+* Pretty permalinks
+* Bonjour zero hostname configuration
+
 
 
 ## Requirements
