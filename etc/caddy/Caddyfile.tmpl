@@ -4,7 +4,7 @@ root * /var/www/html
 php_fastcgi unix//run/php/phpPHP_VERSION-fpm.sock
 file_server
 encode gzip
-tls self_signed
+tls internal
 
 @disallowed {
     path /xmlrpc.php
