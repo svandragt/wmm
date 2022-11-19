@@ -15,7 +15,9 @@ then
 
 	if command -v wp &> /dev/null
 	then
-		wp plugin install redis-cache --activate
-		wp redis update-dropin
+		pushd /var/www/html || return
+			wp plugin install redis-cache --activate
+			wp redis update-dropin
+		popd || return
 	fi
 fi
