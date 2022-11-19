@@ -21,11 +21,12 @@ then
 	pushd /var/www/html || return
 		wp core download
 		wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
-		wp core install --url=wmm.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
+		wp core install --url=https://wmm.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
 		sed -i "/<?php/a define('FS_METHOD','direct');" wp-config.php
 		sed -i "/<?php/a define('WP_CACHE', true);" wp-config.php
 
-		wp rewrite structure '/%postname%'
+		# delete the default plugins
+		wp plugin uninstall --all --deactivate
 
 		wp theme install --activate https://github.com/jacklenox/susty/archive/refs/heads/master.zip
 
@@ -34,6 +35,7 @@ then
 		wp plugin install user-switching --activate
 		wp plugin install wp-crontrol --activate
 
+		wp rewrite structure '/%postname%'
 		wp surge flush --delete
 
 		sudo chown ubuntu:www-data wp-content -R
