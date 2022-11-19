@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo '$nrconf{restart} = a;' | sudo te -a /etc/needrestart/needrestart.conf
+sudo sed -i "/#\$nrconf{restart} = 'i';/a \$nrconf{restart} = 'a';" /etc/needrestart/needrestart.conf
 
 if ! command -v avahi-daemon &> /dev/null
 then

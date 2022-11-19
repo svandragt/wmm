@@ -8,6 +8,7 @@ then
 	sudo apt-get update
 	sudo apt-get install caddy -y
 	sudo systemctl enable --now caddy
+	sudo usermod -a -G ubuntu www-data
 fi
 
 cat /multipass/etc/caddy/Caddyfile.tmpl | sed "s/PHP_VERSION/$PHP_VERSION/g" | sudo tee /etc/caddy/Caddyfile

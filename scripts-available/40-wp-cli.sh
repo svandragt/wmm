@@ -15,3 +15,4 @@ then
 	sudo mv wp-cli.phar /usr/local/bin/wp
 	wp --info
 fi
+

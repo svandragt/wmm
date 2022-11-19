@@ -4,7 +4,7 @@ then
 	echo 'Installing MariaDB ...'
 
 	if [[ -z "$PASSWD" ]]; then
-    	echo "Set password:" && read -r PASSWD
+    	echo "Set admin/database password:" && read -r PASSWD
 	fi
 
 	sudo apt-get -y install mariadb-client mariadb-server
