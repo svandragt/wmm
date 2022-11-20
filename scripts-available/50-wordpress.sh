@@ -30,6 +30,10 @@ then
 		wp core install --url=https://$WMM_HOSTNAME.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
 		sed -i "/<?php/a define('FS_METHOD','direct');" wp-config.php
 		sed -i "/<?php/a define('WP_CACHE', true);" wp-config.php
+		sed -i "/<?php/a define( 'WP_DEBUG_DISPLAY', true );" wp-config.php
+		sed -i "/<?php/a define( 'WP_DEBUG', true );" wp-config.php
+		# logs
+		sed -i "/<?php/a define( 'WP_DEBUG_LOG', '/var/www/logs/debug.log' );" wp-config.php
 		# delete the default plugins
 		wp plugin uninstall --all --deactivate
 		# Install an opinionated set of defaults

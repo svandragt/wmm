@@ -12,3 +12,12 @@ tls internal
     path /wp-content/uploads/*.php
 }
 
+log {
+    level ERROR
+    format console
+    output file /var/www/logs/caddy_errors.log {
+        roll_uncompressed
+        roll_local_time
+        roll_disabled
+    }
+}

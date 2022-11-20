@@ -10,7 +10,7 @@ then
 		yes no | sudo pecl install redis
 		sudo cp /multipass/etc/php/$PHP_VERSION/mods-available/redis.ini /etc/php/$PHP_VERSION/mods-available/redis.ini
 		sudo phpenmod redis
-		sudo service php$PHP_VERSION-fpm restart
+		sudo systemctl restart php$PHP_VERSION-fpm
 	fi
 
 	if command -v wp &> /dev/null

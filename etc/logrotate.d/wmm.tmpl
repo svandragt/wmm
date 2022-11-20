@@ -1,0 +1,10 @@
+/var/www/logs/*.log {
+	rotate 7
+	daily
+	missingok
+	sharedscripts
+	postrotate
+		systemctl reload php$PHP_VERSION-fpm
+		systemctl reload caddy
+	endscript
+}

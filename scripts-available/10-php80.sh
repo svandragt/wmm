@@ -11,3 +11,8 @@ then
 	sudo apt-get -y install php-pear
 	sudo pecl channel-update pecl.php.net
 fi
+
+sudo cp /multipass/etc/php/$PHP_VERSION/fpm/php.ini /etc/php/$PHP_VERSION/fpm/php.ini
+sudo systemctl restart php$PHP_VERSION-fpm
+
+
