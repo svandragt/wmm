@@ -12,4 +12,4 @@ then
 	sudo usermod -a -G ubuntu www-data
 fi
 # Update any changes to the template, swapping placeholders
-cat /multipass/etc/caddy/Caddyfile.tmpl | sed "s/PHP_VERSION/$PHP_VERSION/g" | sudo tee /etc/caddy/Caddyfile
+cat /multipass/etc/caddy/Caddyfile.tmpl | sed "s/PHP_VERSION/$PHP_VERSION/g" | sed "s/WMM_HOSTNAME/$WMM_HOSTNAME/g"  |sudo tee /etc/caddy/Caddyfile

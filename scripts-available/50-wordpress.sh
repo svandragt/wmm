@@ -27,7 +27,7 @@ then
 	pushd /var/www/html || return
 		wp core download
 		wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
-		wp core install --url=https://wmm.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
+		wp core install --url=https://$WMM_HOSTNAME.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
 		sed -i "/<?php/a define('FS_METHOD','direct');" wp-config.php
 		sed -i "/<?php/a define('WP_CACHE', true);" wp-config.php
 		# delete the default plugins

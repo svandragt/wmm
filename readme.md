@@ -1,6 +1,10 @@
 # wmm
 
-Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. Provision a server using a list of scripts, ran in alphabetical order.
+Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. 
+
+Provisioner features:
+* Provision a server using a list of scripts, ran in alphabetical order.
+* Allows multiple instances with dynamic hostnames
 
 WordPress Features:
 * PHP 8.0 and latest WordPress
@@ -9,7 +13,7 @@ WordPress Features:
 * Self signed HTTPS using Caddy
 * Minimal default theme using Susty
 * Pretty permalinks
-* Bonjour zero hostname configuration
+* Bonjour zero hostname and domain configuration
 
 
 
@@ -22,10 +26,18 @@ You do not need to know Docker or Ansible, Terraform or Chef, because this proje
 
 ## Installation
 
-1. Run `./reset.sh` then provide the admin/database password when asked.
-2. Load up https://wmm.local
+1. Run `./host.sh` then provide the admin/database password when asked.
+2. Reset your environment by running the `reset.sh` script.
 
 
 ## What's with the name wmm?
 
 [VVV](https://varyingvagrantvagrants.org/) minus minus. I guess if you squint with your eyes multiple Vs look like a W?
+
+
+## Advanced use
+
+### Use a different hostname
+
+The hostname is based on the directory the scripts are running in. To provide a custom hostname prefix `host.sh` or `reset.sh` with `WMM_HOSTNAME=myhostname` eg: `$ WMM_HOSTNAME=dolly ./host.sh`
+
