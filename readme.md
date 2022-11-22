@@ -4,10 +4,6 @@ I want to work on WP plugins/themes<br>
 Without overcomplicated local environment.
 
 As a developer<br>
-I want to have the environment host my tools<br>
-So that I can focus on my code.
-
-As a developer<br>
 I want to script my particular edge cases<br>
 So that my local environment can accommodate them.
 
