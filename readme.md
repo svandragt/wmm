@@ -1,4 +1,13 @@
 # wmm
+As a developer<br>
+I want to work on WP plugins/themes<br>
+Without overcomplicated local environment.
+
+As a developer<br>
+I want to script my particular edge cases<br>
+So that my local environment can accommodate them.
+
+## Summary
 
 Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. 
 
