@@ -37,7 +37,9 @@ then
 		# delete the default plugins
 		wp plugin uninstall --all --deactivate
 		# Install an opinionated set of defaults
-		wp theme install --activate https://github.com/jacklenox/susty/archive/refs/heads/master.zip
+		if [ ! -f "/var/www/html/wp-content/themes/susty/index.php" ]; then
+			wp theme install --activate https://github.com/jacklenox/susty/archive/refs/heads/master.zip
+		fi 
 		wp plugin install query-monitor --activate
 		wp plugin install surge --activate
 		wp plugin install user-switching --activate

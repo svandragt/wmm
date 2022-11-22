@@ -12,7 +12,7 @@ set -o pipefail
 IFS=$'\t\n'   # Split on newlines and tabs (but not on spaces)
 SCRIPT_NAME=$(basename "${0}")
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-readonly SCRIPT_NAME script_dir
+readonly SCRIPT_NAME SCRIPT_DIR
 #}}}
 
 export WMM_HOSTNAME=$1
