@@ -11,5 +11,3 @@ fi
 sudo mkdir -p /var/www/logs
 sudo chown ubuntu:www-data /var/www/logs -R
 sudo chmod g+w /var/www/logs -R
-
-cat /multipass/etc/logrotate.d/wmm.tmpl | sed "s/PHP_VERSION/$PHP_VERSION/g" | sudo tee /etc/logrotate.d/wmm
