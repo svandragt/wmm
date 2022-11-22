@@ -18,7 +18,7 @@ then
 	fi
 
 	# A password is required to setup the database user
-	if [[ -v PASSWD ]]; then
+	if [[ ! -v PASSWD ]]; then
     	echo "Set admin/database password:" && read -r PASSWD
 	fi
 	echo "CREATE DATABASE wp; GRANT ALL ON wp.* TO wp@localhost IDENTIFIED BY '${PASSWD}';FLUSH privileges;" | sudo mysql -u root
