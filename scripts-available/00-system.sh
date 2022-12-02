@@ -5,7 +5,7 @@ if ! command -v avahi-daemon &> /dev/null
 then
 	# Enable hostname.local
 	echo 'Installing Bonjour ...'
-	sudo apt-get install -y avahi-daemon 
+	sudo apt-get install -y avahi-daemon avahi-autoipd
 fi
 
 sudo mkdir -p /var/www/logs
