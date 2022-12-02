@@ -7,7 +7,7 @@ then
 
 	if command -v php &> /dev/null
 	then
-		yes no | sudo pecl install redis
+		yes no | sudo pecl install redis || true
 		sudo cp /multipass/etc/php/$PHP_VERSION/mods-available/redis.ini /etc/php/$PHP_VERSION/mods-available/redis.ini
 		sudo phpenmod redis
 		sudo systemctl restart php$PHP_VERSION-fpm

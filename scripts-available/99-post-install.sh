@@ -5,4 +5,6 @@ cat /multipass/etc/logrotate.d/wmm.tmpl | sed "s/PHP_VERSION/$PHP_VERSION/g" | s
 echo ''
 echo "    Site: https://$WMM_HOSTNAME.local"
 echo "    User: admin"
-echo "Password: ${PASSWD}"
+if [[ -v PASSWD ]]; then
+  echo "Password: ${PASSWD}"
+fi
