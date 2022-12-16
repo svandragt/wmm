@@ -3,9 +3,9 @@
 sudo sed -i "/#\$nrconf{restart} = 'i';/a \$nrconf{restart} = 'a';" /etc/needrestart/needrestart.conf
 if ! command -v avahi-daemon &> /dev/null
 then
-	# Enable hostname.local
+	# Enable hostname.local and apt caching
 	echo 'Installing Bonjour ...'
-	sudo apt-get install -y avahi-daemon avahi-autoipd
+	sudo apt-get install -y avahi-daemon avahi-autoipd squid-deb-proxy-client
 fi
 
 sudo mkdir -p /var/www/logs
