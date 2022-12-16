@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-if ! command -v redis-cli &> /dev/null
-then
 	echo "Installing Object Cache ..."
 
 	sudo apt-get -y install redis-server redis-tools
 
 	if command -v php &> /dev/null
 	then
-		yes no | sudo pecl install redis || true
-		sudo cp /multipass/etc/php/$PHP_VERSION/mods-available/redis.ini /etc/php/$PHP_VERSION/mods-available/redis.ini
-		sudo phpenmod redis
+	  # Install for all versions of
+		for d in "/etc/php/"*; do
+		  echo "dir: $d"
+		  PHP_SUFFIX=$(basename $d)
+  		yes no | sudo pecl -d php_suffix=$PHP_SUFFIX install -f redis || true
+  		sudo cp /multipass/etc/php/mods-available/redis.ini "$d/mods-available/redis.ini"
+		done
+		sudo phpenmod -v ALL redis
 		sudo systemctl restart php$PHP_VERSION-fpm
 	fi
 
@@ -21,4 +24,3 @@ then
 			wp cache flush
 		popd || return
 	fi
-fi
