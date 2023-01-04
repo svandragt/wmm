@@ -5,7 +5,7 @@ if ! command -v avahi-daemon &> /dev/null
 then
 	# Enable hostname.local and apt caching
 	echo 'Installing Bonjour ...'
-	sudo apt-get install -y avahi-daemon avahi-autoipd squid-deb-proxy-client
+	sudo apt-get install -y avahi-daemon avahi-autoipd
 fi
 
 sudo mkdir -p /var/www/logs
