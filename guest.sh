@@ -25,7 +25,6 @@ export WMM_HOSTNAME=$1
 
 echo "Bootstrapping $WMM_HOSTNAME..."
 pushd "$SCRIPT_DIR" || exit 1
-    sudo apt -y update
 
     for s in ./scripts-enabled/*.sh ; do
         echo ''

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Prevent Ubuntu 22.04 asking the user which service should be restarted
 sudo sed -i "/#\$nrconf{restart} = 'i';/a \$nrconf{restart} = 'a';" /etc/needrestart/needrestart.conf
+
+sudo apt-get -y update
+
 if ! command -v avahi-daemon &> /dev/null
 then
 	# Enable hostname.local and apt caching
