@@ -9,11 +9,12 @@ So that my local environment can accommodate them.
 
 ## Summary
 
-Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. 
+Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. It's currently suitable for bundle-less WordPress plugin and theme development that doesn't require a task queue and content search.
 
 Provisioner features:
 * Provision a server using a list of scripts, ran in alphabetical order.
 * Allows multiple instances with dynamic hostnames
+* All tooling is installed in the guest.
 
 WordPress Features:
 * PHP 8.0 and latest WordPress
