@@ -42,7 +42,7 @@ You do not need to know Docker or Ansible, Terraform or Chef, because this proje
 
 ## What's with the name wmm?
 
-[VVV](https://varyingvagrantvagrants.org/) minus minus. I guess if you squint with your eyes multiple Vs look like a W?
+I'm [looking for a new name](https://github.com/svandragt/wmm/issues/11).
 
 
 ## Advanced use
