@@ -9,11 +9,12 @@ So that my local environment can accommodate them.
 
 ## Summary
 
-Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. 
+Setup a simple WordPress local environment in a few minutes, using Multipass and shell scripting. It's currently suitable for bundle-less WordPress plugin and theme development that doesn't require a task queue and content search.
 
 Provisioner features:
 * Provision a server using a list of scripts, ran in alphabetical order.
 * Allows multiple instances with dynamic hostnames
+* All tooling is installed in the guest.
 
 WordPress Features:
 * All supported PHP versions (8.0-8.2) and latest WordPress
@@ -41,7 +42,7 @@ You do not need to know Docker or Ansible, Terraform or Chef, because this proje
 
 ## What's with the name wmm?
 
-[VVV](https://varyingvagrantvagrants.org/) minus minus. I guess if you squint with your eyes multiple Vs look like a W?
+I'm [looking for a new name](https://github.com/svandragt/wmm/issues/11).
 
 
 ## Advanced use
