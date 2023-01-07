@@ -16,7 +16,7 @@ Provisioner features:
 * Allows multiple instances with dynamic hostnames
 
 WordPress Features:
-* PHP 8.0 and latest WordPress
+* All supported PHP versions (8.0-8.2) and latest WordPress
 * Object cache using Redis
 * Full page caching using Surge
 * Self signed HTTPS using Caddy
