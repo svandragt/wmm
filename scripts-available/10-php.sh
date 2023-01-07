@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+
 function install_php {
   PV=$1
   echo "Installing PHP ${PV}..."
-  sudo apt-get -y install php${PV}-cli php${PV}-fpm php${PV}-mysql php${PV}-curl php${PV}-gd php${PV}-mbstring php${PV}-common php${PV}-xml php${PV}-xmlrpc php${PV}-cli php${PV}-dev php${PV}-zip php${PV}-intl php${PV}-imagick
+  sudo apt-get -y install php${PV}-cli php${PV}-fpm php${PV}-mysql php${PV}-curl php${PV}-gd php${PV}-mbstring php${PV}-common php${PV}-xml php${PV}-xmlrpc php${PV}-cli php${PV}-dev php${PV}-zip php${PV}-intl php${PV}-imagick php${PV}-redis
   sudo cp /multipass/etc/php/fpm/php.ini /etc/php/${PV}/fpm/php.ini
   sudo systemctl restart php${PV}-fpm
 }
