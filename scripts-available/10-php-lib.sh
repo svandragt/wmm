@@ -17,10 +17,9 @@ function switch_php {
   cat /multipass/etc/logrotate.d/wmm.tmpl | sed "s/PHP_VERSION/$PHP_VERSION/g" | sudo tee /etc/logrotate.d/wmm
 
   # Reload services
-	sudo systemctl reload php$PV-fpm
-	if command -v caddy &> /dev/null
-  then
-  	sudo systemctl reload caddy
+  sudo systemctl reload php$PV-fpm
+  if command -v caddy &>/dev/null; then
+    sudo systemctl reload caddy
   fi
 
 }
