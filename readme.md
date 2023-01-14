@@ -49,5 +49,5 @@ I'm [looking for a new name](https://github.com/svandragt/wmm/issues/11).
 
 ### Use a different hostname
 
-The hostname is based on the directory the scripts are running in. To provide a custom hostname prefix `host.sh` or `reset.sh` with `WMM_HOSTNAME=myhostname` eg: `$ WMM_HOSTNAME=dolly ./host.sh`
+The hostname is based on the directory the scripts are running in. To provide a custom hostname prefix `host.sh` or `reset.sh` with `WMM_HOSTNAME=myhostname` eg: `$ WMM_HOSTNAME=dolly ./host.sh`. Note: `WMM_HOSTNAME` values should not include periods of tlds, the hostname for the environment must end in `.local`.
 
