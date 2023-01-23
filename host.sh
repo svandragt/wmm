@@ -15,10 +15,10 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 readonly SCRIPT_NAME SCRIPT_DIR
 #}}}
 
-# Accept envronment variable, or fallback to the script's directory
+# Accept environment variable, or fallback to the script's directory
 WMM_HOSTNAME=${WMM_HOSTNAME:-$(basename $PWD)}
 echo "Start VM named $WMM_HOSTNAME..."
-multipass launch -n $WMM_HOSTNAME
+multipass launch -n "$WMM_HOSTNAME"
 # Mount the current folder as /multipass
 multipass mount "$SCRIPT_DIR" $WMM_HOSTNAME:/multipass
 mkdir -p "$SCRIPT_DIR/content/mu-plugins"

@@ -17,7 +17,7 @@ readonly SCRIPT_NAME SCRIPT_DIR
 
 # Accept envronment variable, or fallback to the script's directory
 WMM_HOSTNAME=${WMM_HOSTNAME:-$(basename $PWD)}
-read -p "Purge the current VM $WMM_HOSTNAME? " -n 1 -r
+read -p "Purge the current VM $WMM_HOSTNAME? (y/N)" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -26,7 +26,7 @@ then
 fi
 
 
-read -p "Replace the scripts and launch? " -n 1 -r
+read -p "Replace the scripts and launch? (y/N)" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -35,5 +35,3 @@ then
 	cp scripts-available/*.sh scripts-enabled/
 	./host.sh
 fi
-
-
