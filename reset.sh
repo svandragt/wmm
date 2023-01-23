@@ -31,7 +31,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	# Replace all the scripts
-	rm scripts-enabled/*.sh
-	cp scripts-available/*.sh scripts-enabled/
-	./host.sh
+	rm -f $SCRIPT_DIR/scripts-enabled/*.sh
+	cp $SCRIPT_DIR/scripts-available/*.sh $SCRIPT_DIR/scripts-enabled/
+	$SCRIPT_DIR/host.sh
 fi
