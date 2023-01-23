@@ -17,7 +17,7 @@ Provisioner features:
 * All tooling is installed in the guest.
 
 WordPress Features:
-* PHP 8.0 and latest WordPress
+* All supported PHP versions (8.0-8.2) and latest WordPress. [Only maintained PHP versions](https://launchpad.net/~ondrej/+archive/ubuntu/php) can be installed.
 * Object cache using Redis
 * Full page caching using Surge
 * Self signed HTTPS using Caddy
@@ -47,7 +47,14 @@ I'm [looking for a new name](https://github.com/svandragt/wmm/issues/11).
 
 ## Advanced use
 
-### Use a different hostname
+### How to use a custom hostname
 
 The hostname is based on the directory the scripts are running in. To provide a custom hostname prefix `host.sh` or `reset.sh` with `WMM_HOSTNAME=myhostname` eg: `$ WMM_HOSTNAME=dolly ./host.sh`. Note: `WMM_HOSTNAME` values should not include periods of tlds, the hostname for the environment must end in `.local`.
 
+### How to setup an environment using a different PHP version
+
+* Change the version string in `00-config.sh`. The environment will be setup with the requested PHP version.
+
+### How to add multiple PHP versions on a single environment
+
+* Login to the shell `multipass shell <hostname>` for example `wmm`. Once in the guest, run `install_php <major.minor>` for example `8.2`. Switch PHP versions by running `switch_php <major.minor>` 
