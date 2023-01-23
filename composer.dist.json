@@ -1,0 +1,12 @@
+{
+    "name": "my/wordpress-install",
+    "description": "WMM powered wordpress",
+    "require": {
+        "johnpbloch/wordpress": ">=6"
+    },
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
+    }
+}

@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-
 if [ ! -f "/var/www/html/wp-config.php" ]
 then
 	echo "Installing WordPress ..."
 
-
+  # Checks
 	if ! command -v mysql &> /dev/null
 	then
 		echo "ERROR: WP requires mariadb / mysql!"
@@ -24,8 +23,14 @@ then
 	echo "CREATE DATABASE wp; GRANT ALL ON wp.* TO wp@localhost IDENTIFIED BY '${PASSWD}';FLUSH privileges;" | sudo mysql -u root
 	sudo mkdir -p /var/www/html
 	sudo chown ubuntu:www-data /var/www -R
+
+  # Composer support for empty projects
+  if [[ ! -f 'composer.json' ]]; then
+    cp composer.dist.json composer.json
+  fi
+
 	pushd /var/www/html || return
-		wp core download
+	  composer install
 		wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
 		wp core install --url=https://$WMM_HOSTNAME.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@example.com --skip-email
 		sed -i "/<?php/a define('FS_METHOD','direct');" wp-config.php
@@ -39,7 +44,7 @@ then
 		# Install an opinionated set of defaults
 		if [ ! -f "/var/www/html/wp-content/themes/susty/index.php" ]; then
 			wp theme install --activate https://github.com/jacklenox/susty/archive/refs/heads/master.zip
-		fi 
+		fi
 		wp plugin install query-monitor --activate
 		wp plugin install surge --activate
 		wp plugin install user-switching --activate
