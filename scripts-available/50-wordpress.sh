@@ -5,16 +5,9 @@ then
 	echo "Installing WordPress ..."
 
   # Checks
-	if ! command -v mysql &> /dev/null
-	then
-		echo "ERROR: WP requires mariadb / mysql!"
-		exit 1
-	fi
-	if ! command -v wp &> /dev/null
-	then
-		echo "ERROR: WP requires wp-cli!"
-		exit 1
-	fi
+  require_mariadb
+  require_wpcli
+  require_composer
 
 	# A password is required to setup the database user
 	if [[ ! -v PASSWD ]]; then

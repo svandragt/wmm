@@ -25,9 +25,12 @@ export WMM_HOSTNAME=$1
 
 echo "Bootstrapping $WMM_HOSTNAME..."
 pushd "$SCRIPT_DIR" || exit 1
-
+    for s in ./scripts-enabled/requires/*.sh ; do
+        echo ''
+        source "$s"
+    done
     for s in ./scripts-enabled/*.sh ; do
         echo ''
-        . "$s"
+        source "$s"
     done
 popd || exit 1
