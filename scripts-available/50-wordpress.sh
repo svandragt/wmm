@@ -11,7 +11,6 @@ if [[ ! -f 'composer.json' ]]; then
 fi
 composer install
 
-set -x
 pushd "$(find . -name "wp-includes")/.." || return
   if [ ! -f "wp-config.php" ]
   then
