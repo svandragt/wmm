@@ -23,7 +23,6 @@ WordPress Features:
 * Self signed HTTPS using Caddy
 * Minimal default theme using Susty
 * Pretty permalinks
-* Bonjour zero hostname and domain configuration
 
 
 
