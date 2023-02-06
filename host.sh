@@ -16,9 +16,23 @@ readonly SCRIPT_NAME SCRIPT_DIR
 #}}}
 
 function update_hosts() {
-  IP=$(multipass list --format=csv | grep "$1" | cut -f3 -d',')
-  echo "Adding host..."
-  sudo sed -i -e "s/.*$1.local/$IP $1.local/" /etc/hosts
+  if [ -f "/etc/hosts" ]
+  then
+    IP=$(multipass list --format=csv | grep "$1" | cut -f3 -d',')
+    read -p "Manage update of /etc/hosts for $WMM_HOSTNAME? (y/N) " -n 1 -r
+    echo    # (optional) move to a new line
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "Updating /etc/hosts..."
+      sudo sed -i -e "s/.*$1.local/$IP $1.local/" /etc/hosts
+    else
+      echo "Please update /etc/hosts:"
+    fi
+  else
+    echo "Please update your hosts file:"
+  fi
+
   multipass list | grep "$1"
 }
 
