@@ -15,7 +15,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 readonly SCRIPT_NAME SCRIPT_DIR
 #}}}
 
-# Accept envronment variable, or fallback to the script's directory
+# Accept environment variable, or fallback to the script's directory
 WMM_HOSTNAME=${WMM_HOSTNAME:-$(basename $PWD)}
 
 if multipass list --format csv | grep -q "$WMM_HOSTNAME,"

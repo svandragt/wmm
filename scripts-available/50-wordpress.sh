@@ -16,7 +16,7 @@ pushd "$(find . -name "wp-includes")/.." || return
   then
     echo "Installing WordPress ..."
     # A password is required to setup the database user
-    echo "CREATE DATABASE IF NOT EXISTS wp; GRANT ALL ON wp.* TO wp@localhost IDENTIFIED BY '${PASSWD}';FLUSH privileges;" | sudo mysql -u root
+    echo "DROP DATABASE IF EXISTS wp; CREATE DATABASE wp; GRANT ALL ON wp.* TO wp@localhost IDENTIFIED BY '${PASSWD}';FLUSH privileges;" | sudo mysql -u root
     wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
     wp core install --url="https://$WMM_DOMAIN" --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@$WMM_DOMAIN --skip-email
 
@@ -30,8 +30,9 @@ pushd "$(find . -name "wp-includes")/.." || return
     wp plugin uninstall --all --deactivate
     # Install an opinionated set of defaults
     if [ ! -f "wp-content/themes/susty/index.php" ]; then
-      wp theme install --activate https://github.com/jacklenox/susty/archive/refs/heads/master.zip
+      wp theme install https://github.com/jacklenox/susty/archive/refs/heads/master.zip
     fi
+    wp theme activate susty
     wp plugin install query-monitor --activate
     wp plugin install surge --activate
     wp plugin install user-switching --activate

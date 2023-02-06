@@ -20,8 +20,14 @@ if [ ! -d "/multipass" ]; then
     exit 1
 fi
 
+if (( $# != 2 )); then
+    >&2 echo "Illegal number of parameters, two expected."
+fi
+
+
 
 export WMM_HOSTNAME=$1
+export WMM_DOMAIN=$2
 
 echo "Bootstrapping $WMM_HOSTNAME..."
 pushd "$SCRIPT_DIR" || exit 1
