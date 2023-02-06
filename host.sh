@@ -15,6 +15,13 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 readonly SCRIPT_NAME SCRIPT_DIR
 #}}}
 
+function update_hosts() {
+  IP=$(multipass list --format=csv | grep "$1" | cut -f3 -d',')
+  echo "Adding host..."
+  sudo sed -i -e "s/.*$1.local/$IP $1.local/" /etc/hosts
+  multipass list | grep "$1"
+}
+
 # Accept environment variable, or fallback to the script's directory
 WMM_HOSTNAME=${WMM_HOSTNAME:-$(basename $PWD)}
 
@@ -47,3 +54,4 @@ fi
 
 # Install the required packages
 multipass exec $WMM_HOSTNAME -- ./guest.sh $WMM_HOSTNAME
+update_hosts $WMM_HOSTNAME

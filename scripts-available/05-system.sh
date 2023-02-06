@@ -10,9 +10,6 @@ sudo sed -i "/#\$nrconf{restart} = 'i';/a \$nrconf{restart} = 'a';" /etc/needres
 sudo cp /multipass/etc/apt/sources.list /etc/apt/sources.list
 sudo apt-get -y update
 
-
-require_avahi
-
 sudo mkdir -p /var/www/logs
 sudo chown ubuntu:www-data /var/www/logs -R
 sudo chmod g+w /var/www/logs -R
