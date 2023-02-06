@@ -18,14 +18,14 @@ readonly SCRIPT_NAME SCRIPT_DIR
 function update_hosts() {
   if [ -f "/etc/hosts" ]
   then
-    IP=$(multipass list --format=csv | grep "$1" | cut -f3 -d',')
+    IP=$(multipass list --format=csv | grep "$WMM_HOSTNAME" | cut -f3 -d',')
     read -p "Manage update of /etc/hosts for $WMM_HOSTNAME? (y/N) " -n 1 -r
     echo    # (optional) move to a new line
 
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
       echo "Updating /etc/hosts..."
-      sudo sed -i -e "s/.*$1.local/$IP $1.local/" /etc/hosts
+      sudo sed -i -e "s/.*$WMM_DOMAIN/$IP $WMM_DOMAIN/" /etc/hosts
     else
       echo "Please update /etc/hosts:"
     fi
@@ -33,11 +33,12 @@ function update_hosts() {
     echo "Please update your hosts file:"
   fi
 
-  multipass list | grep "$1"
+  multipass list | grep "$WMM_HOSTNAME"
 }
 
 # Accept environment variable, or fallback to the script's directory
 WMM_HOSTNAME=${WMM_HOSTNAME:-$(basename $PWD)}
+WMM_DOMAIN="$WMM_HOSTNAME.test"
 
 # Create if destroyed
 if ! multipass list --format csv | grep -q "$WMM_HOSTNAME,"
@@ -68,4 +69,4 @@ fi
 
 # Install the required packages
 multipass exec $WMM_HOSTNAME -- ./guest.sh $WMM_HOSTNAME
-update_hosts $WMM_HOSTNAME
+update_hosts

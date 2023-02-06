@@ -4,8 +4,6 @@ require_caddy
 sudo systemctl restart caddy
 
 echo ''
-echo "    Site: https://$WMM_HOSTNAME.local"
+echo "    Site: https://$WMM_DOMAIN"
 echo "    User: admin"
-if [[ -v PASSWD ]]; then
-  echo "Password: ${PASSWD}"
-fi
+echo "    Password: ${PASSWD}"

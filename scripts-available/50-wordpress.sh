@@ -18,7 +18,7 @@ pushd "$(find . -name "wp-includes")/.." || return
     # A password is required to setup the database user
     echo "CREATE DATABASE IF NOT EXISTS wp; GRANT ALL ON wp.* TO wp@localhost IDENTIFIED BY '${PASSWD}';FLUSH privileges;" | sudo mysql -u root
     wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
-    wp core install --url=https://$WMM_HOSTNAME.local --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@$WMM_HOSTNAME.local --skip-email
+    wp core install --url="https://$WMM_DOMAIN" --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@$WMM_DOMAIN --skip-email
 
     sed -i "/<?php/a define('FS_METHOD','direct');" wp-config.php
     sed -i "/<?php/a define('WP_CACHE', true);" wp-config.php
