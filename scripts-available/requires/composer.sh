@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-function require_comoser {
+function require_composer {
   if ! command -v composer &> /dev/null
   then
     echo 'Installing Composer ...'

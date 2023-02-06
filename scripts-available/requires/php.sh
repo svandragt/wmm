@@ -2,14 +2,14 @@
 
 function require_php {
   PV=$1
-  if ! apt-cache policy | grep -q 'ondrej/php'
+  if ! apt-cache policy | grep -q "ondrej/php"
   then
     sudo apt-get -y install php-pear software-properties-common apt-transport-https -y
     sudo add-apt-repository ppa:ondrej/php -y
     sudo apt-get update
   fi
 
-  if ! apt-cache search php${PV}
+  if ! (dpkg -l --no-pager || true) | grep -q "php${PV}"
   then
     echo "Installing PHP ${PV}..."
     sudo apt-get -y install php${PV}-cli php${PV}-fpm php${PV}-mysql php${PV}-curl php${PV}-gd php${PV}-mbstring php${PV}-common php${PV}-xml php${PV}-xmlrpc php${PV}-cli php${PV}-dev php${PV}-zip php${PV}-intl php${PV}-imagick php${PV}-redis
