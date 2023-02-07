@@ -20,11 +20,11 @@ pushd "$(find . -name "wp-includes")/.." || return
     wp config create --dbname=wp --dbuser=wp --dbpass="$PASSWD"
     wp core install --url="https://$WMM_DOMAIN" --title=Example --admin_user=admin --admin_password="$PASSWD" --admin_email=admin@$WMM_DOMAIN --skip-email
 
-    sed -i "/<?php/a define('FS_METHOD','direct');" wp-config.php
-    sed -i "/<?php/a define('WP_CACHE', true);" wp-config.php
+    sed -i "/<?php/a define( 'FS_METHOD', 'direct' );" wp-config.php
+    sed -i "/<?php/a define( 'WP_CACHE', true );" wp-config.php
     sed -i "/<?php/a define( 'WP_DEBUG_DISPLAY', true );" wp-config.php
     sed -i "/<?php/a define( 'WP_DEBUG', true );" wp-config.php
-    # logs
+    sed -i "/<?php/a define( 'AUTOMATIC_UPDATER_DISABLED', true );" wp-config.php
     sed -i "/<?php/a define( 'WP_DEBUG_LOG', '/var/www/logs/debug.log' );" wp-config.php
     # delete the default plugins
     wp plugin uninstall --all --deactivate

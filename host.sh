@@ -28,6 +28,7 @@ function update_hosts() {
       sudo sed -i "/ $WMM_HOSTNAME./d" /etc/hosts
       sudo sed -i "/ $WMM_DOMAIN/d" /etc/hosts
       echo "$IP $WMM_DOMAIN" | sudo tee -a /etc/hosts
+      ping $WMM_DOMAINd -c 4
     else
       echo "Please update /etc/hosts:"
     fi
@@ -40,7 +41,7 @@ function update_hosts() {
 
 # Accept environment variable, or fallback to the script's directory
 WMM_HOSTNAME=${WMM_HOSTNAME:-$(basename $PWD)}
-WMM_DOMAIN="$WMM_HOSTNAME.test"
+WMM_DOMAIN="$WMM_HOSTNAME.multipass"
 
 # Create if destroyed
 if ! multipass list --format csv | grep -q "$WMM_HOSTNAME,"

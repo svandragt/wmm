@@ -51,7 +51,7 @@ I'm [looking for a new name](https://github.com/svandragt/wmm/issues/11).
 
 The hostname is based on the directory the scripts are running in. To provide a custom hostname prefix `host.sh`
 or `reset.sh` with `WMM_HOSTNAME=myhostname` eg: `$ WMM_HOSTNAME=dolly ./host.sh`. Note: `WMM_HOSTNAME` values should
-not include periods of tlds, the domain for the environment will end in `.test`.
+not include periods of tlds, the domain for the environment will end in `.multipass`.
 
 ### How to setup an environment using a different PHP version
 
