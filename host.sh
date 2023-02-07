@@ -25,9 +25,9 @@ function update_hosts() {
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
       echo "Updating /etc/hosts..."
-      sudo sed -i '/ $WMM_HOSTNAME./d' /etc/hosts
-      sudo sed -i '/ $WMM_DOMAIN/d' /etc/hosts
-      echo "$IP $WMM_DOMAIN/" | sudo tee -a /etc/hosts
+      sudo sed -i "/ $WMM_HOSTNAME./d" /etc/hosts
+      sudo sed -i "/ $WMM_DOMAIN/d" /etc/hosts
+      echo "$IP $WMM_DOMAIN" | sudo tee -a /etc/hosts
     else
       echo "Please update /etc/hosts:"
     fi
