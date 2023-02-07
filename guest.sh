@@ -20,15 +20,24 @@ if [ ! -d "/multipass" ]; then
     exit 1
 fi
 
+if (( $# != 2 )); then
+    >&2 echo "Illegal number of parameters, two expected."
+fi
+
+
 
 export WMM_HOSTNAME=$1
+export WMM_DOMAIN=$2
 
 echo "Bootstrapping $WMM_HOSTNAME..."
 pushd "$SCRIPT_DIR" || exit 1
-    sudo apt -y update
-
+    for s in ./scripts-enabled/requires/*.sh ; do
+        echo ">>>>>> $s"
+        source "$s"
+    done
     for s in ./scripts-enabled/*.sh ; do
-        echo ''
-        . "$s"
+        echo ''; echo ''
+        echo ">>>>>> $s"
+        source "$s"
     done
 popd || exit 1

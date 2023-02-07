@@ -1,0 +1,40 @@
+{
+    "name": "my/wordpress-install",
+    "description": "WMM powered wordpress",
+    "require": {
+        "composer-plugin-api": "^2.0",
+        "johnpbloch/wordpress": ">=6"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    },
+    "repositories": {
+        "wpackagist": {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    },
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true,
+            "composer/installers": true
+        }
+    },
+    "installer-paths": {
+        "content/mu-plugins/vendor/{$name}/": [
+            "type:wordpress-muplugin"
+        ],
+        "content/plugins/{$name}/": [
+            "type:wordpress-plugin"
+        ],
+        "content/themes/{$name}/": [
+            "type:wordpress-theme"
+        ]
+    },
+    "sort-packages": true
+}

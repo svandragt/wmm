@@ -1,23 +1,23 @@
-WMM_HOSTNAME.local
+WMM_DOMAIN
 
-root * /var/www/html
+root * /multipass/wordpress
 php_fastcgi unix//run/php/php-fpm.sock
 file_server
 encode gzip
 tls internal
 
 @disallowed {
-    path /xmlrpc.php
-    path *.sql
-    path /wp-content/uploads/*.php
+	path /xmlrpc.php
+	path *.sql
+	path /wp-content/uploads/*.php
 }
 
 log {
-    level ERROR
-    format console
-    output file /var/www/logs/caddy_errors.log {
-        roll_uncompressed
-        roll_local_time
-        roll_disabled
-    }
+	level ERROR
+	format console
+	output file /var/www/logs/caddy_errors.log {
+		roll_uncompressed
+		roll_local_time
+		roll_disabled
+	}
 }

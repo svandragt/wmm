@@ -1,4 +1,13 @@
-todo.md
-scripts-enabled/
+# PROJECT
+*.local.sh
 content/**
+scripts-enabled/
+todo.md
+
+# EDITOR
 .idea/
+
+# PHP
+/composer.json
+/composer.lock
+/vendor/
