@@ -7,6 +7,7 @@ sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
 # Prevent Ubuntu 22.04 asking the user which service should be restarted
 sudo sed -i "/#\$nrconf{restart} = 'i';/a \$nrconf{restart} = 'a';" /etc/needrestart/needrestart.conf
 
+echo 'Acquire::http::Timeout "10";' | sudo tee /etc/apt/apt.conf.d/00-aptcache
 sudo cp /multipass/etc/apt/sources.list /etc/apt/sources.list
 sudo apt-get -y update
 
