@@ -11,7 +11,7 @@ if [[ ! -f 'composer.json' ]]; then
 fi
 composer install
 
-pushd "$(find . -name "wp-includes")/.." || return
+pushd "wordpress/" || return
   if [ ! -f "wp-config.php" ]
   then
     echo "Installing WordPress ..."
