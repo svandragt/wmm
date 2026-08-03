@@ -1,3 +1,7 @@
+Replaced by [Yak](https://github.com/svandragt/yak)
+
+---
+
 # wmm
 
 As a developer<br>
